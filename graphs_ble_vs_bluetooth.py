@@ -33,8 +33,8 @@ for index, log_dir in enumerate(logs_dirs):
 time = [i/len(logs_dirs) for i in time]
 inq_find_sc = [i/len(logs_dirs) for i in inq_find_sc]
 collision = [i/len(logs_dirs) for i in collision]
-inq_energy = [i/len(logs_dirs) for i in inq_energy]
-sc_energy = [i/len(logs_dirs) for i in sc_energy]
+inq_energy = [i/len(logs_dirs)*429.1 for i in inq_energy] # 6.31mW * 68bits / 1Mbps
+sc_energy = [i/len(logs_dirs)*1804.7 for i in sc_energy] # 6.31mW * 286bits / 1Mbps
 
 x_ = []
 time_ = []
@@ -65,18 +65,19 @@ for index, log_dir in enumerate(logs_dirs):
 time_ = [i/len(logs_dirs) for i in time_]
 inq_find_sc_ = [i/len(logs_dirs) for i in inq_find_sc_]
 collision_ = [i/len(logs_dirs) for i in collision_]
-inq_energy_ = [i/len(logs_dirs) for i in inq_energy_]
-sc_energy_ = [i/len(logs_dirs) for i in sc_energy_]
+inq_energy_ = [i/len(logs_dirs)*807.7 for i in inq_energy_] # 6.31mW * 128bits / 1Mbps
+sc_energy_ = [i/len(logs_dirs)*1110.6 for i in sc_energy_] # 6.31mW * 176bits / 1Mbps
 
 plt.plot(x, time, label='Classic Bluetooth')
 plt.plot(x_, time_, label='Bluetooth Low Energy')
 plt.yscale('log')
 plt.title('Elapsed time for all inquirers to find a scanner')
 plt.xlabel('Total inquirers vs Total scanners')
-plt.ylabel('Time (s)')
+plt.ylabel('Time (µs)')
 plt.legend(loc='best', shadow=True)
 plt.grid(True)
 plt.savefig('graphs/time_0.png')
+plt.savefig('graphs/time_0.eps')
 plt.show()
 
 plt.plot(x, inq_find_sc, label='Classic Bluetooth')
@@ -88,6 +89,7 @@ plt.ylabel('Number of inquirers')
 plt.legend(loc='best', shadow=True)
 plt.grid(True)
 plt.savefig('graphs/inq_find_sc_0.png')
+plt.savefig('graphs/inq_find_sc_0.eps')
 plt.show()
 
 plt.plot(x, collision, label='Classic Bluetooth')
@@ -99,28 +101,31 @@ plt.ylabel('Number of collisions')
 plt.legend(loc='best', shadow=True)
 plt.grid(True)
 plt.savefig('graphs/collisions_0.png')
+plt.savefig('graphs/collisions_0.eps')
 plt.show()
 
 plt.plot(x, inq_energy, label='Classic Bluetooth')
 plt.plot(x_, inq_energy_, label='Bluetooth Low Energy')
 plt.yscale('log')
-plt.title('Units of energy spent by inquirers')
+plt.title('Energy spent by inquirers')
 plt.xlabel('Total inquirers vs Total scanners')
-plt.ylabel('Energy')
+plt.ylabel('Energy (nJ)')
 plt.legend(loc='best', shadow=True)
 plt.grid(True)
 plt.savefig('graphs/inq_energy_0.png')
+plt.savefig('graphs/inq_energy_0.eps')
 plt.show()
 
 plt.plot(x, sc_energy, label='Classic Bluetooth')
 plt.plot(x_, sc_energy_, label='Bluetooth Low Energy')
 plt.yscale('log')
-plt.title('Units of energy spent by scanners')
+plt.title('Energy spent by scanners')
 plt.xlabel('Total inquirers vs Total scanners')
-plt.ylabel('Energy')
+plt.ylabel('Energy (nJ)')
 plt.legend(loc='best', shadow=True)
 plt.grid(True)
 plt.savefig('graphs/sc_energy_0.png')
+plt.savefig('graphs/sc_energy_0.eps')
 plt.show()
 
 #########################################################
@@ -154,8 +159,8 @@ for index, log_dir in enumerate(logs_dirs):
 time = [i/len(logs_dirs) for i in time]
 inq_find_sc = [i/len(logs_dirs) for i in inq_find_sc]
 collision = [i/len(logs_dirs) for i in collision]
-inq_energy = [i/len(logs_dirs) for i in inq_energy]
-sc_energy = [i/len(logs_dirs) for i in sc_energy]
+inq_energy = [i/len(logs_dirs)*429.1 for i in inq_energy] # 6.31mW * 68bits / 1Mbps
+sc_energy = [i/len(logs_dirs)*1804.7 for i in sc_energy] # 6.31mW * 286bits / 1Mbps
 
 x_ = []
 time_ = []
@@ -186,18 +191,19 @@ for index, log_dir in enumerate(logs_dirs):
 time_ = [i/len(logs_dirs) for i in time_]
 inq_find_sc_ = [i/len(logs_dirs) for i in inq_find_sc_]
 collision_ = [i/len(logs_dirs) for i in collision_]
-inq_energy_ = [i/len(logs_dirs) for i in inq_energy_]
-sc_energy_ = [i/len(logs_dirs) for i in sc_energy_]
+inq_energy_ = [i/len(logs_dirs)*807.7 for i in inq_energy_] # 6.31mW * 128bits / 1Mbps
+sc_energy_ = [i/len(logs_dirs)*1110.6 for i in sc_energy_] # 6.31mW * 176bits / 1Mbps
 
 plt.plot(x, time, label='Classic Bluetooth')
 plt.plot(x_, time_, label='Bluetooth Low Energy')
 plt.yscale('log')
 plt.title('Elapsed time for all inquirers to find a scanner')
 plt.xlabel('Total inquirers vs Total scanners')
-plt.ylabel('Time (s)')
+plt.ylabel('Time (µs)')
 plt.legend(loc='best', shadow=True)
 plt.grid(True)
 plt.savefig('graphs/time_1.png')
+plt.savefig('graphs/time_1.eps')
 plt.show()
 
 plt.plot(x, inq_find_sc, label='Classic Bluetooth')
@@ -209,6 +215,7 @@ plt.ylabel('Number of inquirers')
 plt.legend(loc='best', shadow=True)
 plt.grid(True)
 plt.savefig('graphs/inq_find_sc_1.png')
+plt.savefig('graphs/inq_find_sc_1.eps')
 plt.show()
 
 plt.plot(x, collision, label='Classic Bluetooth')
@@ -220,26 +227,29 @@ plt.ylabel('Number of collisions')
 plt.legend(loc='best', shadow=True)
 plt.grid(True)
 plt.savefig('graphs/collisions_1.png')
+plt.savefig('graphs/collisions_1.eps')
 plt.show()
 
 plt.plot(x, inq_energy, label='Classic Bluetooth')
 plt.plot(x_, inq_energy_, label='Bluetooth Low Energy')
 plt.yscale('log')
-plt.title('Units of energy spent by inquirers')
+plt.title('Energy spent by inquirers')
 plt.xlabel('Total inquirers vs Total scanners')
-plt.ylabel('Energy')
+plt.ylabel('Energy (nJ)')
 plt.legend(loc='best', shadow=True)
 plt.grid(True)
 plt.savefig('graphs/inq_energy_1.png')
+plt.savefig('graphs/inq_energy_1.eps')
 plt.show()
 
 plt.plot(x, sc_energy, label='Classic Bluetooth')
 plt.plot(x_, sc_energy_, label='Bluetooth Low Energy')
 plt.yscale('log')
-plt.title('Units of energy spent by scanners')
+plt.title('Energy spent by scanners')
 plt.xlabel('Total inquirers vs Total scanners')
-plt.ylabel('Energy')
+plt.ylabel('Energy (nJ)')
 plt.legend(loc='best', shadow=True)
 plt.grid(True)
 plt.savefig('graphs/sc_energy_1.png')
+plt.savefig('graphs/sc_energy_1.eps')
 plt.show()
